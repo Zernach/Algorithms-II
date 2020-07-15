@@ -3,9 +3,26 @@
 import sys
 
 def rock_paper_scissors(n):
-  # Your code here
+  
+    outcomes = ['rock', 'paper', 'scissors']
+    num_to_remove = 0
+    # Base cases
+    if n == 0:
+        return [[]]
+    elif n == 1:
+        return [['rock'], ['paper'], ['scissors']]
+    else:
+        return_arr = [['rock'], ['paper'], ['scissors']]
 
-  pass
+        while n > 1:
+            num_to_remove = len(return_arr)
+            for i in range(0, len(return_arr)):
+                for outcome in outcomes:
+                    return_arr.append(return_arr[i] + [outcome])
+            for i in range(0, num_to_remove):
+                del return_arr[0]
+            n -= 1
+    return return_arr
 
 
 if __name__ == "__main__":
