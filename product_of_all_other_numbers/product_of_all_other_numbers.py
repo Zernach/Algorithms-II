@@ -3,9 +3,23 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
 
-    pass
+    # Instantiate an empty array of multiplied products...
+    solution_list = []
+
+    # For each index within arr:
+    # 1) Make a hardcopy of arr (the list to use for multiplying)
+    # 2) Delete the element at the index
+    # 3) For each remaining element, multiply them all together
+    # 4) Append that multiplied product to the solution_list
+    for index in range(0, len(arr)):
+        mult_list = list(arr)
+        del mult_list[index]
+        prod = 1
+        for num in mult_list:
+            prod *= num
+        solution_list.append(prod)
+    return solution_list
 
 
 if __name__ == '__main__':
