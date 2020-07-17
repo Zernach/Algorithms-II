@@ -4,11 +4,13 @@ Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
     
+    # Initializes list of zeros equal to length of nums - k + 1
     max_values = [0 for i in range(len(nums) - k + 1)]
 
+    # For each time the "window" slides, find the max, and replace a zero within max_values
     for i in range(0, len(max_values)):
         max_values[i] = max(nums[i:i+k])
-        
+
     return max_values
         
 
